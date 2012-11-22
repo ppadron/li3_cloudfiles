@@ -41,10 +41,10 @@ class CdnContainer extends \li3_cloudfiles\extensions\adapter\data\source\http\C
                 'name'            => $conditions['name'],
                 'bytes'           => (integer) $response->headers('X-Container-Bytes-Used'),
                 'count'           => (integer) $response->headers('X-Container-Object-Count'),
-                'cdnEnabled'      => $response->headers('X-CDN-URI') ?: false,
-                'cdnSslUri'       => $response->headers('X-CDN-SSL-URI') ?: null,
-                'cdnStreamingUri' => $response->headers('X-CDN-STREAMING-URI') ?: null,
-                'cdnTtl'          => (integer) $response->headers('X-TTL'),
+                'cdnEnabled'      => $response->headers('X-Cdn-Uri') ?: false,
+                'cdnSslUri'       => $response->headers('X-Cdn-Ssl-Uri') ?: null,
+                'cdnStreamingUri' => $response->headers('X-Cdn-Streaming-Uri') ?: null,
+                'cdnTtl'          => (integer) $response->headers('X-Ttl'),
                 'cdnLogRetention' => (strtolower($response->headers('X-Log-Retention')) == 'true') ? true : false
             );
 
